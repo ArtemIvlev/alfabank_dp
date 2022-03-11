@@ -6,7 +6,7 @@ properties:
   notFormAddrName:
     type: string
     description: неотформатированный полный адрес
-    example:  '115230 Россия г Москва проезд Электролитный дом 16 корп 2 кв 96'
+    example: 115230 Россия г Москва проезд Электролитный дом 16 корп 2 кв 96
   addressName:
     type: string
     description: полный нормализованный адрес
@@ -61,7 +61,7 @@ properties:
     example: деревня Иваново
   settlementType:
     type: string
-    description: Тип поселка, деревни
+    description: 'Тип поселка, деревни'
     example: деревня
   streetType:
     type: string
@@ -96,10 +96,12 @@ properties:
     description: Идентификатор адресной единицы. Формат строки не определен
   type:
     type: stirng
-    description: Тип адреса в Dictionary catalogName = `AddressType`
+    description: |-
+      Тип адреса
+      * Проживания
+      * Регистрации
   metadata:
     $ref: ./metadata.yaml
-    
 required:
-- metadata
-- type
+  - type
+  - metadata

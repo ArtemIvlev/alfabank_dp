@@ -3,12 +3,9 @@ description: Модель про физ лицо
 allOf:
   - $ref: ../docs/doctypes/baseTypes/BaseTypeGender.yaml
   - properties:
-      ucn:
+      cus:
         type: string
-        description: Идентификатор УНК (ац)
-      mdm_id:
-        type: string
-        description: Идентификатор MDM
+        description: Идентификатор CUS
       uuid:
         type: string
         format: uuid
@@ -46,7 +43,9 @@ allOf:
         description: 'Имеет смысл только для специфики Янонских, Китайских, Корейских имён'
       individualLifeCycle:
         type: string
-        description: 'Тип контакта в Dictionary catalogName =`CustomerLifeCycleStatus` ''Prospect, Client, UnverifiedProspect, NotClient, None, Active, Inactive, Reorganization'''
+        description: |-
+          Тип ФЛ
+          Клиент/не Клиент и т.д.
       characteristic:
         type: array
         items:
@@ -78,15 +77,8 @@ allOf:
         items:
           allOf:
             - type: object
-              properties:
-                type:
-                  type: string
-                  enum:
-                    - регистрациии
-                    - проживания
-                    - свой вариант??
             - $ref: ../common/address.yaml
 x-internal: false
-type: object
 examples:
   - {}
+type: object
