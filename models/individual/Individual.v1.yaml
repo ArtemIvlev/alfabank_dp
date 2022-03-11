@@ -1,10 +1,8 @@
 title: Individual
-type: object
 description: Модель про физ лицо
 allOf:
   - $ref: ../docs/doctypes/baseTypes/BaseTypeGender.yaml
-  - type: object
-    properties:
+  - properties:
       ucn:
         type: string
         description: Идентификатор УНК (ац)
@@ -15,10 +13,6 @@ allOf:
         type: string
         format: uuid
         description: Идентификатор partyId
-      crosslinks:
-        type: array
-        items:
-          $ref: crossRef.yaml
       placeOfBirth:
         type: string
         description: В модели это ссылка на место рождения (не уверен что нам оно надо)
@@ -92,6 +86,7 @@ allOf:
                     - проживания
                     - свой вариант??
             - $ref: ../common/address.yaml
-required:
-  - uuid
 x-internal: false
+type: object
+examples:
+  - {}
