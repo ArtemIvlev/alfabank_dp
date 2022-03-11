@@ -1,0 +1,8 @@
+title: BaseGetDateDoc
+type: object
+properties:
+  receiptDocDate:
+    type: string
+    description: >
+      Дата и время получения документа в формате unix timestamp
+    example: '1574237502'

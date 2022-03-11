@@ -1,0 +1,64 @@
+title: FrgnPassportDoc
+description: > 
+  Заграничный паспорт гражданина России
+  `type` будет равен `FRGN_PASS`
+  PermittedScope: id_doc (если заграничный паспорт гражданина России указан как ДУЛ в УЗ гражданина)
+                  foreign_passport_doc (если заграничный паспорт гражданина России не указан как ДУЛ)
+allOf:
+  - $ref: ./baseTypes/BaseProofBlock.yaml
+  - $ref: ./baseTypes/BaseDoc.yaml
+  - $ref: ./baseTypes/BaseDepartmentDoc.yaml
+  - $ref: ./baseTypes/BaseGetDateDoc.yaml
+  - $ref: ./baseTypes/BaseValidateDateDoc.yaml
+  - $ref: ./baseTypes/BaseTypeName.yaml
+  - $ref: ./baseTypes/BaseTypePatronymic.yaml
+  - $ref: ./baseTypes/BaseTypeSurname.yaml
+  - $ref: ./baseTypes/BaseTypeGender.yaml
+  - $ref: ./baseTypes/BaseTypeBirthDate.yaml
+  - $ref: ./baseTypes/BaseTypeBirthPlace.yaml
+  - type: object
+    properties:
+      latinFirstName:
+        type: string
+        example: 'IVAN'
+        description: Транслитерированное имя
+      latinLastName:
+        type: string
+        example: 'IVANOV'
+        description: Транслитерированная фамилия
+      issuedBy:
+        type: string
+        example: 'ФМС 404'
+        description: Кем выдан паспорт
+      expiryDate:
+        type: string
+        example: '29.08.2026'
+        description: Действителен до (в формате ДД.ММ.ГГГГ)
+      invalidity_reason:
+        type: string
+        enum:
+          - expired
+          - replaced
+          - with_violation
+          - in_search
+          - destroyes
+          - owner_death
+          - technical_defect
+          - lost
+        description: Причина недействительности
+        example: replaced
+      passportstatus:
+        type: string
+        enum:
+          - valid
+          - invalid
+          - noInformation
+        description: Статус паспорта - заполняется только для паспортов, пришедших в истории из ЕСИА
+      legalForce:
+        type: boolean
+        description: Возможность проверить подлинность данных, полученных из ГИС (документы подписанные ЭП ведомства)
+      metadata:
+        $ref: ../../common/metadata.yaml    
+    required:
+      - type
+      - metadata

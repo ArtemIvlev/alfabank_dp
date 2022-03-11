@@ -1,0 +1,14 @@
+title: ValidFor
+type: object
+properties:
+  validFor:
+    type: object
+    properties:
+      startDateTime:
+        type: string
+        format: date-time
+      endDateTime:
+        type: string
+        format: date-time
+        description: может быть null
+x-examples: {}

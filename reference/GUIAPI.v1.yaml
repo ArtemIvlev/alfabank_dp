@@ -1,0 +1,83 @@
+openapi: 3.0.0
+info:
+  title: GUIAPI
+  version: '1.0'
+  contact:
+    name: Artem Ivlev
+servers: []
+paths:
+  '/individual/{individualId}':
+    get:
+      summary: getIndividual
+      tags:
+        - individual
+      operationId: get-individual
+      description: ''
+      responses:
+        '200':
+          description: Success Individual
+          content:
+            application/json:
+              schema:
+                $ref: ../models/individual/IndividualPure.yaml
+    parameters:
+      - schema:
+          type: string
+        name: individualId
+        in: path
+        required: true
+  '/individual/{individualId}/document':
+    parameters:
+      - schema:
+          type: string
+        name: individualId
+        in: path
+        required: true
+    get:
+      summary: getDogumentList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: ../models/docs/Document.yaml
+      operationId: get-individual-id-document
+  '/individual/{individualId}/document/{documentId}':
+    parameters:
+      - schema:
+          type: string
+        name: individualId
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: documentId
+        in: path
+        required: true
+    get:
+      summary: getDocument
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../models/docs/Document.yaml
+      operationId: get-individual-id-document-id
+components:
+  schemas: {}
+  securitySchemes:
+    JWT:
+      type: oauth2
+      flows:
+        password:
+          tokenUrl: ''
+          refreshUrl: ''
+          scopes: {}
+security:
+  - undefined: []

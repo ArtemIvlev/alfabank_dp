@@ -1,0 +1,7 @@
+title: BaseTypeGender
+type: object
+properties:
+  gender:
+    type: string
+    description: Код из справочника Gender Половая принадлежность ('F'- female, 'M' - male, 'U' - Не определен )
+    example: 'F'

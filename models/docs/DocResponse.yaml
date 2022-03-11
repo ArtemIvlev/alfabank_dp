@@ -1,0 +1,17 @@
+title: DocResponse
+oneOf:
+  - $ref: ./doctypes/SNILSDoc.yaml
+  - $ref: ./doctypes/RfPassportDoc.yaml
+  - $ref: ./doctypes/Vehicle.v1.yaml
+  - $ref: ./doctypes/RfDrivingLicenseDoc.yaml
+  - $ref: ./doctypes/innDoc.yaml
+  - $ref: ./doctypes/FrgnPassportDoc.yaml
+  - $ref: ./doctypes/BrthCertDoc.yaml
+  - $ref: ./doctypes/DivorceCertDoc.yaml
+  - $ref: ./doctypes/FatherHoodCertDoc.yaml
+  - $ref: ./doctypes/FidDoc.yaml
+  - $ref: ./doctypes/ils_doc.v1.yaml
+  - $ref: ./doctypes/Model2NDFLDoc.yaml
+  - $ref: ./doctypes/MarriedCertDoc.yaml
+  - $ref: ./doctypes/NameChangeCertDoc.yaml
+  

@@ -1,0 +1,9 @@
+title: BaseTypeDocIssued
+type: object
+description:  Дата выдачи документа
+properties:
+  issued:
+    type: string
+    format: date
+    example: '2016-08-29'
+    description: Дата выдачи документа

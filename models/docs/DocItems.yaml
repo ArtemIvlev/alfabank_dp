@@ -1,0 +1,10 @@
+title: DocItems
+description: |
+  Коллекция идентификаторов документов пользователя с типом.
+type: array
+items:
+  allOf:
+    - type: object
+    - $ref: ./BaseTypeId.yaml
+    - $ref: ./doctypes/baseTypes/BaseTypeRelevance.yaml
+    - $ref: ./doctypes/baseTypes/BaseDocType.yaml

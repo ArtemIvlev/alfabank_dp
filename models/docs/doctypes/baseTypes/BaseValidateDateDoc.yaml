@@ -1,0 +1,8 @@
+title: BaseValidateDateDoc
+type: object
+properties:
+  validateDateDoc:
+    type: string
+    description: >
+      Дата и время валидации документа в формате unix timestamp
+    example: '1574237613'

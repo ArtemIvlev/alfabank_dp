@@ -1,0 +1,105 @@
+title: BaseTypeAddress
+description: Адрес
+type: object
+x-examples: {}
+properties:
+  notFormAddrName:
+    type: string
+    description: неотформатированный полный адрес
+    example:  '115230 Россия г Москва проезд Электролитный дом 16 корп 2 кв 96'
+  addressName:
+    type: string
+    description: полный нормализованный адрес
+    example: '115230,Москва,проезд Электролитный,16,2,96'
+  countryId:
+    type: string
+    description: Страна
+    example: RUS
+  zipCode:
+    type: string
+    description: Индекс
+    example: '394018'
+  state:
+    type: string
+    description: Код региона
+    example: cm.region.Altay
+  province:
+    type: string
+    description: Регион
+    example: Воронежская
+  provinceType:
+    type: string
+    description: тип регион
+    example: обл.
+  region:
+    type: string
+    description: Район
+    example: Советский
+  regionType:
+    type: string
+    description: тип района
+    example: район
+  area:
+    type: string
+    description: территория
+    example: Бутурлиновский
+  additionArea:
+    type: string
+    description: Дополнительная территория
+    example: Дополнительная территория
+  city:
+    type: string
+    description: Город
+    example: Воронеж
+  cityType:
+    type: string
+    description: Тип города
+    example: город
+  settlement:
+    type: string
+    description: поселок
+    example: деревня Иваново
+  settlementType:
+    type: string
+    description: Тип поселка, деревни
+    example: деревня
+  streetType:
+    type: string
+    description: тип улицы
+    example: ул
+  street:
+    type: string
+    description: Улица
+    example: Станкевича
+  additionAreaStreet:
+    type: string
+    description: Улица
+    example: Улица на дополнительной территории
+  house:
+    type: string
+    description: Дом
+    example: '4'
+  housing:
+    type: string
+    description: Корпус
+    example: '5'
+  building:
+    type: string
+    description: Строение
+    example: '1'
+  flat:
+    type: string
+    description: Квартира
+    example: '45'
+  fiasCode:
+    type: string
+    description: Идентификатор адресной единицы. Формат строки не определен
+  type:
+    type: stirng
+    description: Тип адреса в Dictionary catalogName = `AddressType`
+  metadata:
+    $ref: ./metadata.yaml
+    
+required:
+- metadata
+- type
