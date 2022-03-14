@@ -21,7 +21,7 @@ paths:
         - $ref: 'https://api.swaggerhub.com/domains/ArtemIvlev/common/1.0.0#/components/parameters/expandParam'
       responses:
         '200':
-          description: List of Individual
+          description: Список ФЛ
           content:
             application/json:
               schema:
@@ -49,6 +49,7 @@ paths:
                 $ref: ../models/individual/Individual.v1.yaml
       deprecated: false
       x-codegen-request-body-name: individual
+    parameters: []
   '/individual/{individualId}':
     get:
       tags:
@@ -141,3 +142,41 @@ paths:
                 $ref: ../models/individual/Individual.v1.yaml
       deprecated: false
       x-codegen-request-body-name: individual
+    parameters:
+      - schema:
+          type: string
+        name: individualId
+        in: path
+        required: true
+  '/individual/{individualId}/document':
+    get:
+      tags:
+        - individual
+      summary: individualGet
+      operationId: GetDocumentList
+      parameters:
+        - name: individualId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: fields
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Список документов
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: ../models/docs/Document.yaml
+      deprecated: false
+    parameters:
+      - schema:
+          type: string
+        name: individualId
+        in: path
+        required: true
