@@ -155,15 +155,12 @@ paths:
       summary: individualGet
       operationId: GetDocumentList
       parameters:
-        - name: individualId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: fields
-          in: query
-          schema:
-            type: string
+        - $ref: 'https://api.swaggerhub.com/domains/ArtemIvlev/common/1.0.0#/components/parameters/filterParam'
+        - $ref: 'https://api.swaggerhub.com/domains/ArtemIvlev/common/1.0.0#/components/parameters/offsetParam'
+        - $ref: 'https://api.swaggerhub.com/domains/ArtemIvlev/common/1.0.0#/components/parameters/limitParam'
+        - $ref: 'https://api.swaggerhub.com/domains/ArtemIvlev/common/1.0.0#/components/parameters/fieldsParam'
+        - $ref: 'https://api.swaggerhub.com/domains/ArtemIvlev/common/1.0.0#/components/parameters/depthParam'
+        - $ref: 'https://api.swaggerhub.com/domains/ArtemIvlev/common/1.0.0#/components/parameters/expandParam'
       responses:
         '200':
           description: Список документов
@@ -172,7 +169,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: ../models/docs/Document.yaml
+                  $ref: ./ProfileService.json#/components/schemas/DocumentDto
       deprecated: false
     parameters:
       - schema:

@@ -54,7 +54,7 @@ allOf:
         description: документы идентифицирующие ФЛ
         type: array
         items:
-          $ref: ../docs/Document.yaml
+          $ref: ../../reference/ProfileService.json#/components/schemas/DocumentDto
       externalReference:
         type: array
         items:
