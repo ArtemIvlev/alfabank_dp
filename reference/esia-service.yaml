@@ -1,0 +1,116 @@
+openapi: 3.1.0
+info:
+  title: esia-service
+  version: '1.0'
+  description: API Кнопки "Получить данные из госуслуг"
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/individual/{cus}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uprid:
+                    type: boolean
+                  esia_agreement:
+                    type: boolean
+                  esia_profile_status:
+                    type: string
+                    enum:
+                      - unverified
+                      - verified
+                    default: verified
+      operationId: get-individual
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+      parameters: []
+    parameters:
+      - schema:
+          type: string
+        name: cus
+        in: path
+        required: true
+        description: идентификатор клиента
+  /session:
+    post:
+      summary: ''
+      operationId: post-session
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
+                  sessionId:
+                    type: string
+      description: Создание сессии взаимодействия
+    parameters: []
+  '/session/{sessionId}':
+    parameters:
+      - schema:
+          type: string
+        name: sessionId
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/status'
+                  - type: object
+                    properties:
+                      documents_list:
+                        allOf:
+                          - allOf:
+                              - type: object
+                                properties:
+                                  type:
+                                    type: string
+                              - $ref: '#/components/schemas/status'
+      operationId: get-session-sessionId
+components:
+  schemas:
+    status:
+      title: status
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+            - AUTH_IN_PROGRESS
+            - ERROR
+            - LOADING_DATA
+            - DATA_IS_REQUESTED
+            - PROCESSING_DATA
+            - DONE
+            - NOT_EXISTS
+          description: |-
+            * AUTH_IN_PROGRESS, если идет авторизация
+            * ERROR, если получена ошибка
+            * LOADING_DATA, если идет получение и загрузка данных
+            * DATA_IS_REQUESTED, если получен ответ, что ЕСИА запросила документ в ведомстве
+            * PROCESSING_DATA, если данные загружаются в TDG
+            * DONE, если данные получены успешно
+            * NOT_EXISTS, не существует указанного в запросе state
