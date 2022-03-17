@@ -170,7 +170,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: ./ProfileService.json#/components/schemas/DocumentDto
+                  $ref: ../models/docs/DocResponse.yaml
       deprecated: false
       description: 'Можно получить все документы или отфильтровать их по типу, по источнику и по дате актуальности и получить один'
     parameters:
