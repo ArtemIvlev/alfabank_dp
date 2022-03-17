@@ -10,7 +10,7 @@ paths:
     get:
       tags:
         - individual
-      summary: individualFind
+      summary: Поиск записи ФЛ
       operationId: individualFind
       parameters:
         - $ref: ../models/common/common.json#/components/parameters/offsetParam
@@ -29,10 +29,11 @@ paths:
                 items:
                   $ref: ../models/individual/Individual.v1.yaml
       deprecated: false
+      description: Поиск явно не первый приоритет
     post:
       tags:
         - individual
-      summary: individualCreate
+      summary: Создание записи ФЛ
       operationId: individualCreate
       requestBody:
         content:
@@ -54,7 +55,7 @@ paths:
     get:
       tags:
         - individual
-      summary: individualGet
+      summary: Получение записи ФЛ
       operationId: individualGet
       parameters:
         - name: individualId
@@ -77,7 +78,7 @@ paths:
     put:
       tags:
         - individual
-      summary: individualUpdate
+      summary: Обновление записи ФЛ
       operationId: individualUpdate
       parameters:
         - name: individualId
@@ -103,7 +104,7 @@ paths:
     delete:
       tags:
         - individual
-      summary: individualDelete
+      summary: Логическое удаление записи ФЛ
       operationId: individualDelete
       parameters:
         - name: individualId
@@ -119,7 +120,7 @@ paths:
     patch:
       tags:
         - individual
-      summary: individualPatch
+      summary: Частичное обновление записи ФЛ
       operationId: individualPatch
       parameters:
         - name: individualId
