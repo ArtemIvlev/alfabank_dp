@@ -1,8 +1,9 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "vtbid-profile-service",
-    "version": "v0"
+    "title": "profile-service",
+    "version": "v0.5",
+    "description": ""
   },
   "servers": [
     {
