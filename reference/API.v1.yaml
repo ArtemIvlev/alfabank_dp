@@ -13,12 +13,12 @@ paths:
       summary: individualFind
       operationId: individualFind
       parameters:
-        - $ref: 'https://api.swaggerhub.com/domains/ArtemIvlev/common/1.0.0#/components/parameters/filterParam'
-        - $ref: 'https://api.swaggerhub.com/domains/ArtemIvlev/common/1.0.0#/components/parameters/offsetParam'
-        - $ref: 'https://api.swaggerhub.com/domains/ArtemIvlev/common/1.0.0#/components/parameters/limitParam'
-        - $ref: 'https://api.swaggerhub.com/domains/ArtemIvlev/common/1.0.0#/components/parameters/fieldsParam'
-        - $ref: 'https://api.swaggerhub.com/domains/ArtemIvlev/common/1.0.0#/components/parameters/depthParam'
-        - $ref: 'https://api.swaggerhub.com/domains/ArtemIvlev/common/1.0.0#/components/parameters/expandParam'
+        - $ref: ../models/common/common.json#/components/parameters/offsetParam
+        - $ref: ../models/common/common.json#/components/parameters/limitParam
+        - $ref: ../models/common/common.json#/components/parameters/fieldsParam
+        - $ref: ../models/common/common.json#/components/parameters/depthParam
+        - $ref: ../models/common/common.json#/components/parameters/expandParam
+        - $ref: ../models/common/common.json#/components/parameters/filterParam
       responses:
         '200':
           description: Список ФЛ
@@ -151,8 +151,8 @@ paths:
   '/individual/{individualId}/document':
     get:
       tags:
-        - individual
-      summary: individualGet
+        - document
+      summary: Получение списка документов
       operationId: GetDocumentList
       parameters:
         - $ref: 'https://api.swaggerhub.com/domains/ArtemIvlev/common/1.0.0#/components/parameters/filterParam'
@@ -171,6 +171,7 @@ paths:
                 items:
                   $ref: ./ProfileService.json#/components/schemas/DocumentDto
       deprecated: false
+      description: 'Можно получить все документы или отфильтровать их по типу, по источнику и по дате актуальности и получить один'
     parameters:
       - schema:
           type: string
