@@ -90,6 +90,7 @@ paths:
                                     type: string
                               - $ref: '#/components/schemas/status'
       operationId: get-session-sessionId
+      x-internal: false
 components:
   schemas:
     status:
@@ -114,3 +115,5 @@ components:
             * PROCESSING_DATA, если данные загружаются в TDG
             * DONE, если данные получены успешно
             * NOT_EXISTS, не существует указанного в запросе state
+tags:
+  - name: ESIA
