@@ -8,7 +8,7 @@ servers:
 paths:
   '/individual/{cus}':
     get:
-      summary: Your GET endpoint
+      summary: Получение информации о статусе согласий у ФЛ
       tags: []
       responses:
         '200':
@@ -45,7 +45,7 @@ paths:
         description: идентификатор клиента
   /session:
     post:
-      summary: ''
+      summary: Открытие сессии с ЕСИА и получение URL
       operationId: post-session
       responses:
         '200':
@@ -69,7 +69,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Your GET endpoint
+      summary: Получения статуса взаимодействия с ESIA в рамках сессии
       tags: []
       responses:
         '200':
