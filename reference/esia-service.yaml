@@ -89,6 +89,8 @@ paths:
                                   type:
                                     type: string
                               - $ref: '#/components/schemas/status'
+                      uuid:
+                        type: string
       operationId: get-session-sessionId
       x-internal: false
 components:
